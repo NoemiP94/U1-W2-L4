@@ -102,14 +102,15 @@ console.log(reverseString('ciao'))
 */
 
 const upperFirst = function (s1) {
-  const newS1 = s1.split(' ') // crea nuovo array di s1
-
-  //   for (let i = 0; i < newS1.length; i++) {
-  //     newS1[i] = newS1[i].chatAt(0).toUpperCase()
-  //     // charAt(0) --> la prima lettera
-  //     // toUpperCase --> diventa maiuscola
-  //     return newS1
-  //   }
+  let newS1 = s1.charAt(0).toUpperCase()
+  for (let i = 0; i < s1.length - 1; i++) {
+    if (s1.charAt(i) === ' ') {
+      newS1 += s1.charAt(i + 1).toUpperCase()
+    } else {
+      newS1 += s1.charAt(i + 1)
+    }
+  }
+  return newS1
 }
 
 console.log(upperFirst('ciao ciao ciao'))
