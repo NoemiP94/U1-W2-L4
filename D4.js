@@ -101,16 +101,14 @@ console.log(reverseString('ciao'))
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
-const upperFirst = function (s1) {
-  let newS1 = s1.charAt(0).toUpperCase()
-  for (let i = 0; i < s1.length - 1; i++) {
-    if (s1.charAt(i) === ' ') {
-      newS1 += s1.charAt(i + 1).toUpperCase()
-    } else {
-      newS1 += s1.charAt(i + 1)
-    }
+const upperFirst = function (str) {
+  let result = ''
+  const arrayOfWords = str.split(' ') // trasforma in array
+  for (let i = 0; i < arrayOfWords.length; i++) {
+    result +=
+      arrayOfWords[i].slice(0, 1).toUpperCase() + arrayOfWords[i].slice(1) + ' ' //per ogni parola
   }
-  return newS1
+  return result
 }
 
 console.log(upperFirst('ciao ciao ciao'))
@@ -133,13 +131,13 @@ const cutString = function (str) {
 console.log(cutString('buongiorno'))
 
 /* ESERCIZIO 10
- Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
+ Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 const giveMeRandom = function (n) {
   const random = []
   for (let i = 0; i < n; i++) {
-    random.push(Math.ceil(Math.random() * 10 + 1))
+    random.push(Math.floor(Math.random() * 10) + 1)
   }
   return random
 }
